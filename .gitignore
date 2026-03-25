@@ -1,0 +1,33 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# --- Django ---
+db.sqlite3
+/static/
+.env
+local_settings.py
+
+# --- IDEs (PyCharm e VS Code) ---
+.idea/
+.vscode/
+*.swp
+*.iml
+
+# --- Sistemas Operacionais ---
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Linux (Arch/Ubuntu)
+.DS_Store
+.directory
+*~
+
+# --- Logs ---
+*.log
