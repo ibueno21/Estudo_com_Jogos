@@ -1,33 +1,120 @@
-# --- Python ---
+# ============================================================================
+# .gitignore — Estudo com Jogos
+# ============================================================================
+# Regras para impedir que dados sensíveis (senhas, chaves, credenciais)
+# e arquivos locais (venv, cache, IDE) subam para o GitHub.
+# ============================================================================
+
+# --- SEGREDOS: nunca versionar credenciais --------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pem
+*.crt
+id_ed25519*
+id_rsa*
+*.p12
+*.pfx
+*.jks
+secrets.json
+credentials.json
+service-account*.json
+*.secret
+*.token
+
+# --- Python ---------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Virtual environments --------------------------------------------------
 .venv/
 venv/
+env/
 ENV/
+env.bak/
+venv.bak/
+.uv/
+.pdm-python
 
-# --- Django ---
+# --- Django ----------------------------------------------------------------
 db.sqlite3
+db.sqlite3-journal
 /static/
-.env
+/staticfiles/
+/media/
 local_settings.py
+*.sqlite3
 
-# --- IDEs (PyCharm e VS Code) ---
+# --- Dados/backups de banco (podem conter senhas/usuários) ---------------
+*.sql
+*.sql.gz
+*.dump
+!Arquivo*.sql
+
+# --- IDEs (PyCharm, VS Code, etc.) ----------------------------------------
 .idea/
 .vscode/
 *.swp
+*.swo
 *.iml
+*.ipr
+*.iws
+.DS_Store
 
-# --- Sistemas Operacionais ---
+# --- Sistemas Operacionais -------------------------------------------------
 # Windows
 Thumbs.db
 desktop.ini
 $RECYCLE.BIN/
 
-# Linux (Arch/Ubuntu)
-.DS_Store
+# Linux
 .directory
 *~
+*.orig
 
-# --- Logs ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Logs e testes ---------------------------------------------------------
 *.log
+*.log.*
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+celerybeat-schedule
+celerybeat.pid
+
+# --- Outros ----------------------------------------------------------------
+*.bak
+*.tmp
+*.temp
+node_modules/
