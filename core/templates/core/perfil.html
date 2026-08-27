@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário — Estudo com Jogos</title>
+
+    <!-- Carrega o CSS externo do diretório static -->
+    {% load static %}
+    <!-- CSS base (compartilhado por todas as páginas) -->
+    <link rel="stylesheet" href="{% static 'css/css_basico.css' %}">
+    <!-- CSS personalizado desta página (sobrescreve o base se precisar) -->
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+</head>
+<body>
+    <div class="pagina">
+        <h1>Perfil do Usuário</h1>
+        <p>Esta é a página de perfil do usuário.</p>
+    </div>
+</body>
+</html>

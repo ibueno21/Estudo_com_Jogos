@@ -1,28 +1,45 @@
 """
-URL configuration for setup project.
+URL configuration for setup project (Estudo com Jogos — versão didática).
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+O `urlpatterns` é uma LISTA de rotas. Cada rota mapeia uma URL (caminho)
+para uma função (view) localizada em `core/views.py`.
+
+Exemplo:
+    path('perfil/', views.perfil, name='perfil')
+        ├── 'perfil/'  → o que o usuário digita depois do domínio
+        ├── views.perfil → a função que atende essa URL
+        └── name='perfil' → o "apelido" usado nos templates com {% url %}
 """
+
 from django.contrib import admin
-from django.urls import path, include # <--- Adicionamos o 'include' aqui
-from core.views import home, pagina_teste
+from django.urls import path, include
+from core import views
 
 urlpatterns = [
+    # Painel de administração do Django (só para superusuários)
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')), # <--- Esta linha ativa o login/logout
-    path('teste/', pagina_teste, name='url_teste'), # <--- Nova rota criada!
-    path('', home),
 
+    # Login, logout e recuperação de senha (views nativas do Django)
+    path('accounts/', include('django.contrib.auth.urls')),
 
+    # 1) Página principal (index) — a view `home` sempre mostra o index.html
+    path('', views.home, name='home'),
+
+    # 2) Perfil do usuário
+    path('perfil/', views.perfil, name='perfil'),
+
+    # 3) Listagem dos alunos cadastrados (só alunos)
+    path('alunos/', views.listar_alunos, name='listar_alunos'),
+
+    # 4) Cadastro de um novo jogo (usado pelo professor)
+    path('cadastrar-jogo/', views.cadastrar_jogo, name='cadastrar_jogo'),
+
+    # 5) Página de jogo (onde o aluno joga)
+    path('jogar/', views.jogar, name='jogar'),
+
+    # 6) Acompanhamento da evolução do aluno
+    path('evolucao/', views.acompanhar_evolucao, name='acompanhar_evolucao'),
+
+    # Cadastro de novo usuário (auxiliar, usada pelo link do login)
+    path('cadastro/', views.cadastro, name='cadastro'),
 ]

@@ -1,0 +1,12 @@
+/* perfil.css — Estilo PERSONALIZADO da página "Perfil do Usuário"
+   ==================================================================
+   Este arquivo é o lugar onde VOCÊ personaliza o visual da página de
+   perfil. Ele é carregado DEPOIS do css_basico.css no template
+   (perfil.html), então as regras escritas aqui SOBREESCREVEM o estilo
+   base quando necessário.
+
+   Exemplo:
+       .pagina h1 {
+           color: #b91c1c;   /* deixa o título vermelho só nesta página */
+       }
+*/

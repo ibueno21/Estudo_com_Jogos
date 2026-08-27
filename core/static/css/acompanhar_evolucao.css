@@ -1,0 +1,10 @@
+/* acompanhar_evolucao.css — Estilo PERSONALIZADO da página "Acompanhamento da Evolução"
+   =============================================================================
+   Lugar para personalizar o visual da tela de evolução (gráficos/estatísticas).
+   Carregado DEPOIS do css_basico.css no template acompanhar_evolucao.html.
+
+   Exemplo:
+       .pagina h1 {
+           color: #15803d;   /* título verde só nesta página */
+       }
+*/

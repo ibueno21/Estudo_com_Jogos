@@ -1,0 +1,298 @@
+/* ==========================================================================
+   CONFIGURAÇÕES BASE E VARIÁVEIS
+   ========================================================================== */
+:root {
+    --bg-color: #f7f4ef;
+    --card-bg: #ffffff;
+    --text-primary: #2b2523;
+    --text-secondary: #6e655f;
+    --accent-color: #195e8c; /* Azul educativo mantendo o tom elegante */
+    --accent-gold: #c59b27;
+    --border-color: #e8e2d9;
+    --radius: 16px;
+
+    --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+/* ==========================================================================
+   ESTRUTURA CSS GRID
+   ========================================================================== */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 85vh;
+}
+
+.div1 {
+    grid-column: span 5 / span 5;
+}
+
+.div3 {
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-row-start: 2;
+}
+
+.div4 {
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+/* ==========================================================================
+   DIV 1: CABEÇALHO ELEGANTE
+   ========================================================================== */
+.header-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-base);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-gold));
+}
+
+.tagline {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.brand-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   DIV 3: CARTÃO PRINCIPAL
+   ========================================================================== */
+.dish-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    height: 100%;
+    overflow: hidden;
+    box-shadow: var(--shadow-base);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.dish-image-wrapper {
+    position: relative;
+    height: 55%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dish-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background-color: rgba(25, 94, 140, 0.9);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.dish-content {
+    padding: 24px;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dish-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.dish-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 14px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   DIV 4: CARTÃO INTERATIVO (MANIPULADO VIA JS)
+   ========================================================================== */
+.interactive-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    height: 100%;
+    box-shadow: var(--shadow-base);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.card-image-container {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hover-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    background-color: rgba(43, 37, 35, 0.85);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+.interactive-footer {
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+.interactive-footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.interactive-footer p {
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.card-hover-shadow {
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+    .parent {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .dish-image-wrapper {
+        height: 250px;
+    }
+    .card-image-container {
+        height: 300px;
+    }
+}

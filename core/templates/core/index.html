@@ -1,24 +1,81 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Estudo com Jogos</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; background-color: #f0f8ff; }
-        h1 { color: #2c3e50; }
-        .card { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo com Jogos - Aprendizagem Interativa</title>
+
+    <!-- CSS Externo vindo do diretório static do Django -->
+    <link rel="stylesheet" href="{% static 'css/index_apresentacao.css' %}">
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="card">
-        <h1>🎮 Portal de Jogos Educativos</h1>
-        <p>Olá, alunos! Este é o início do nosso projeto para ajudar nos estudos.</p>
-        <button onclick="alert('Em breve teremos um quiz aqui!')">Clique para testar</button>
-        <hr>
-        <p>Já tem uma conta?</p>
-        <a href="/accounts/login/" style="text-decoration: none; color: blue; font-weight: bold;">Entrar no Sistema</a>
-        <br><br>
-        <a href="/teste/" style="color: #666; font-size: 0.9em;">Acessar página de demonstração</a>
-    </div>
+
+    <main class="parent">
+        <!-- DIV 1: Cabeçalho do Projeto -->
+        <div class="div1">
+            <header class="header-container" id="headerBox">
+                <span class="tagline">✦ Plataforma Educacional ✦</span>
+                <h1 class="brand-title">Estudo com Jogos</h1>
+                <p class="brand-subtitle">Transformando conceitos e revisões em experiências interativas e dinâmicas.</p>
+            </header>
+        </div>
+
+        <!-- DIV 3: Detalhes e Apresentação da Plataforma -->
+        <div class="div3">
+            <article class="dish-card" id="dishCard">
+                <div class="dish-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=80" alt="Jogos e Aprendizado" class="dish-img">
+                    <span class="badge">Aprender & Jogar</span>
+                </div>
+                <div class="dish-content">
+                    <h2>Gamificação no Ensino Médio</h2>
+                    <p class="description">
+                        Nossa plataforma une lógica de programação, tecnologia web em Django e atividades lúdicas para fixação de conteúdos do Ensino Médio. Desafie seus conhecimentos em quizzes e dinâmicas interativas!
+                    </p>
+                    <div class="dish-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Foco</span>
+                            <span class="detail-value">Fixação de Conteúdo</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tecnologia</span>
+                            <span class="detail-value">Python & Django</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Acesso</span>
+                            <span class="detail-value"><a href="{% url 'login' %}" style="color: var(--accent-color); font-weight: bold;">Ir para o Login →</a></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- DIV 4: Cartão Interativo com JS -->
+        <div class="div4">
+            <div class="interactive-card" id="interactiveCard">
+                <div class="card-image-container">
+                    <img id="interactiveImg" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Estudo Tradicional">
+
+                    <div class="hover-hint" id="hoverHint">
+                        <span class="hint-icon">✨</span>
+                        <span class="hint-text">Passe o mouse para transformar o estudo</span>
+                    </div>
+                </div>
+                <div class="interactive-footer">
+                    <h3 id="interactiveTitle">Estudo Tradicional</h3>
+                    <p id="interactiveDesc">Livros, anotações e teoria prontos para se tornarem desafios práticos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script JS Externo com caminho configurado no Django -->
+    <script src="{% static 'js/index_apresentacao.js' %}"></script>
 </body>
 </html>

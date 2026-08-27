@@ -1,0 +1,44 @@
+/* css_basico.css — Estilo base das páginas didáticas
+   ==================================================================
+   Este arquivo contém o estilo de centralização usado por TODAS as
+   páginas simples do projeto (perfil, listar_alunos, cadastrar_jogo,
+   jogar, acompanhar_evolucao e cadastro).
+
+   Cada template carrega este CSS com:
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'css/css_basico.css' %}">
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;              /* Flexbox ativa a centralização */
+    align-items: center;        /* centraliza o conteúdo na VERTICAL */
+    justify-content: center;    /* centraliza o conteúdo na HORIZONTAL */
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.pagina {
+    text-align: center;
+    background: #ffffff;
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.pagina h1 {
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+}
+
+.pagina p {
+    color: #475569;
+    font-size: 1.1rem;
+}

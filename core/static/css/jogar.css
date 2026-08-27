@@ -1,0 +1,10 @@
+/* jogar.css — Estilo PERSONALIZADO da página "Página de Jogo"
+   =========================================================
+   Lugar para personalizar o visual da tela de jogo (questões/alternativas).
+   Carregado DEPOIS do css_basico.css no template jogar.html.
+
+   Exemplo:
+       .pagina h1 {
+           color: #0369a1;   /* título azul só nesta página */
+       }
+*/

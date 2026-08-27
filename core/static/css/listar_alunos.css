@@ -1,0 +1,10 @@
+/* listar_alunos.css — Estilo PERSONALIZADO da página "Listagem dos Alunos"
+   ================================================================
+   Lugar para personalizar o visual da listagem de alunos.
+   Carregado DEPOIS do css_basico.css no template listar_alunos.html.
+
+   Exemplo:
+       .pagina h1 {
+           color: #0f766e;   /* título em verde-azulado só nesta página */
+       }
+*/
