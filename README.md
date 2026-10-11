@@ -50,6 +50,8 @@ para acessar o banco e a **autenticação** nativa.
 
 O banco de dados. Ensina **modelagem**, **normalização** e consultas **SQL**.
 
+A conexão do Django com o MySQL é feita pelo **PyMySQL** — driver 100% Python. Veja a seção [Driver do MySQL: PyMySQL](#-driver-do-mysql-pymysql).
+
 ### 📄 [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 
 A estrutura das páginas. Ensina **marcação semântica**.
@@ -65,6 +67,33 @@ A interatividade. Ensina **manipulação do DOM**.
 ### 🔀 [Git](https://git-scm.com/) + [GitHub](https://github.com/)
 
 O versionamento do código. Ensina **branches**, **commits** e **colaboração**.
+
+---
+
+## 🔌 Driver do MySQL: PyMySQL
+
+O Django não conversa com o MySQL sozinho: ele precisa de uma biblioteca **driver**.
+Este projeto usa o **PyMySQL**, que é escrito **100% em Python**.
+
+> 💡 **Por que PyMySQL e não `mysqlclient`?**
+> O `mysqlclient` é a escolha mais comum, mas é uma extensão em **C**. No
+> **Windows**, o `pip install mysqlclient` costuma falhar porque exige um compilador
+> C e o *MySQL Connector/C* instalados. O PyMySQL é puro Python: instala igual no
+> **Linux (Arch/Ubuntu)**, no **Windows** e no **macOS**, sem nenhuma ferramenta de
+> compilação.
+
+O backend MySQL do Django procura por um módulo chamado `MySQLdb`. Para o Django
+usar o PyMySQL, o projeto faz o "apelido" na inicialização, em `setup/__init__.py`:
+
+```python
+import pymysql
+
+# Registra o PyMySQL no lugar do MySQLdb (o nome que o Django procura).
+pymysql.install_as_MySQLdb()
+```
+
+Com isso, **não é preciso instalar o `mysqlclient`** — o PyMySQL é o único driver
+necessário e já está no `requirements.txt`.
 
 ---
 
@@ -115,6 +144,10 @@ source .venv/bin/activate      # Linux/macOS
 ```bash
 pip install -r requirements.txt
 ```
+
+> 💡 O `requirements.txt` já instala o **PyMySQL**, o driver do MySQL
+> escrito em Python puro — funciona igual no Linux, no Windows e no macOS, sem
+> compilador C.
 
 ### 3. Configure o banco de dados
 
